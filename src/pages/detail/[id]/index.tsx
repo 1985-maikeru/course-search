@@ -98,7 +98,7 @@ const Detail = ({ pageData: { Item } }: any) => {
                     Item?.ratings && 
                         <div className="kuchikomi_area">
                             {
-                                Item?.ratings.map(({ rating }: any, i) => {
+                                Item?.ratings.map(({ rating }: any, i: number) => {
                                     return (
                                         <ReviewBox key={i} review={rating} />
                                     )
