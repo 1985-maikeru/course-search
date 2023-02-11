@@ -25,7 +25,8 @@ export const getCourseListData = (props: any) => {
         ...props,
         url: LIST_ENDPOINTS.REQUEST_COUSE_LIST,
         data: {
-            page: queryKey?.[1]
+            page: queryKey?.[1],
+            keyword: queryKey?.[2]
         },
         method: "GET",
         cbSuccess

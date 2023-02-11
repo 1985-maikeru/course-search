@@ -23,7 +23,8 @@ const List = ({ listData }: any) => {
     const queryClient = useQueryClient();
     const {
         query: {
-            page = 1
+            page = 1,
+            keyword = ""
         }
     } = router;
 
@@ -33,7 +34,7 @@ const List = ({ listData }: any) => {
         isLoading,
         isError,
         error,
-    }: any = useQuery(['Courses', page], getCourseListData);
+    }: any = useQuery(['Courses', page, keyword], getCourseListData);
 
     // データフェッチしない状態管理の基本の形
     // 参考 https://speakerdeck.com/soejima0124/management-global-state-using-to-tanstack-query?slide=13

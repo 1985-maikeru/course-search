@@ -1,7 +1,5 @@
 // lib
 import Pagination from '@mui/material/Pagination';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import axios from "axios";
 // hooks
 import { useRoute } from "@/hooks/useRoute";
 
@@ -12,9 +10,20 @@ type PROPS = {
 }
 const Pager = ({ count, page }: PROPS) => {
     const router = useRoute();
+    const {
+        query: {
+            keyword = ""
+        }
+    } = router;
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        router.push(`/?page=${value}`);
+        router.push({
+            pathname: "/",
+            query: {
+                page: value,
+                keyword,
+            },
+        });
     }
 
     return (

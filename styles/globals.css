@@ -139,3 +139,33 @@ img {
 .course_data .data dt {
   margin-bottom: 30px;
 }
+
+.form_area {
+  margin-bottom: 30px;
+}
+
+.input_area {
+  display: flex;
+}
+
+.search_input {
+  border: 1px solid gray;
+  border-right: none;
+  min-width: 360px;
+  outline: none;
+  box-sizing: border-box;
+  padding: 3px 10px;
+}
+
+.submit_btn {
+  border: 1px solid gray;
+  box-sizing: border-box;
+  padding: 3px 10px;
+}
+
+.form_input_error_label {
+  margin: 5px 0;
+  color:  red;
+  font-size: 14px;
+  text-align: center;
+}

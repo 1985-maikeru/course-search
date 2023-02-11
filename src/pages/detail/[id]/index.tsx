@@ -94,15 +94,18 @@ const Detail = ({ pageData: { Item } }: any) => {
                 <p>{parseHTML(Item?.golfCourseCaption)}</p>
                 <p>{parseHTML(Item?.information)}</p>
                 <p>{parseHTML(Item?.otherFacility)}</p>
-                <div className="kuchikomi_area">
-                    {
-                        Item?.ratings.map(({ rating }: any, i) => {
-                            return (
-                                <ReviewBox key={i} review={rating} />
-                            )
-                        })
-                    }
-                </div>
+                {
+                    Item?.ratings && 
+                        <div className="kuchikomi_area">
+                            {
+                                Item?.ratings.map(({ rating }: any, i) => {
+                                    return (
+                                        <ReviewBox key={i} review={rating} />
+                                    )
+                                })
+                            }
+                        </div>
+                }
             </main>
         </div>
     )

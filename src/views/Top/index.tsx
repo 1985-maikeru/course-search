@@ -1,7 +1,9 @@
 // lib
-import Head from 'next/head'
+import Head from 'next/head';
+import { FormProvider, useForm } from "react-hook-form";
 // components
 import List from "@/components/common/List";
+import FormArea from "./components/FormArea";
 // hooks
 import { useQueryState } from "@/hooks/useQueryState";
 import { useRoute } from "@/hooks/useRoute";
@@ -14,6 +16,9 @@ const TopView = () => {
         query: { page },
     } = router;
     // const [courses]: any  = useQueryState(['Courses', page]);
+    const methods = useForm({ mode: "onChange" });
+    
+
     return (
         <div className={styles.container}>
             <Head>
@@ -30,7 +35,10 @@ const TopView = () => {
                 <p className={styles.description}>
                     日本全国のゴルフ場を検索しよう！！
                 </p>
-                <List /* listData={courses} */ />
+                <FormProvider {...methods}>
+                    <FormArea />
+                    <List /* listData={courses} */ />
+                </FormProvider>
             </main>
 
             <footer className={styles.footer}>
